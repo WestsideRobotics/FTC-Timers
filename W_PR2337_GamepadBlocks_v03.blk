@@ -1,0 +1,985 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+<variables>
+<variable id="PlxDVr+rE#+f[{`^P1|K">RumbleTimer</variable>
+<variable id="nv~5N`D|K{uPdE4c-ZhL">{rumbleEffectBuilderVariable}</variable>
+<variable id="Fmy{=cDEHKiLjuqXC0T7">SavedRumbleTime</variable>
+<variable id="02*3lE-[Idp~_I{iCxO.">{rumbleEffectVariable}</variable>
+</variables>
+<block type="procedures_defnoreturn" id="WtpyD@tEu+EoY=P9iY,D" deletable="false" editable="false" x="-3594" y="-303">
+<field name="NAME">runOpMode</field>
+<comment pinned="false" h="32" w="532">This function is executed when this Op Mode is selected from the Driver Station.</comment>
+<statement name="STACK">
+<block type="variables_set" id="K::hKwqMQ/H?@9U4-5l)">
+<field name="VAR" id="PlxDVr+rE#+f[{`^P1|K">RumbleTimer</field>
+<value name="VALUE">
+<block type="elapsedTime2_create_withResolution" id="s#axiI]qS8,MDHa4Tyv?">
+<value name="RESOLUTION">
+<shadow type="elapsedTime2_typedEnum_resolution" id="L!;=G}DD4yN{v4uP?~rq">
+<field name="RESOLUTION">MILLISECONDS</field>
+</shadow>
+</value>
+</block>
+</value>
+<next>
+<block type="variables_set" id="bu?2#.FsB(~dm-1Xk+eJ">
+<field name="VAR" id="Fmy{=cDEHKiLjuqXC0T7">SavedRumbleTime</field>
+<value name="VALUE">
+<block type="math_number" id="pOgCw1!qft,I]fk8p6%a">
+<field name="NUM">0</field>
+</block>
+</value>
+<next>
+<block type="telemetry_addTextData_All" id="+D/;d/Mr@7HeXZrB5@hK">
+<value name="KEY">
+<shadow type="text" id="Ha5^PsBjo83RppM[!aG#">
+<field name="TEXT">PR2337</field>
+</shadow>
+</value>
+<value name="TEXT">
+<shadow type="text" id="[[oTjO-mj).$puIaIWRJ">
+<field name="TEXT">Gamepad Blocks</field>
+</shadow>
+</value>
+<next>
+<block type="telemetry_addTextData_All" id="@v8BhzvWj055g{S{$z~x">
+<value name="KEY">
+<shadow type="text" id="7{}CpFYwz!q,]_xHr^}t">
+<field name="TEXT">v03</field>
+</shadow>
+</value>
+<value name="TEXT">
+<shadow type="text" id="pmN*%wS#%?-)1-h:YQJ=">
+<field name="TEXT">Test Rumble Effect Builder</field>
+</shadow>
+</value>
+<next>
+<block type="telemetry_addTextData_All" id="Qcp;MF?Ar%hpj]s[84~L">
+<value name="KEY">
+<shadow type="text" id="~PfnnT%W5@6d^@~|Ftw2">
+<field name="TEXT"/>
+</shadow>
+</value>
+<value name="TEXT">
+<shadow type="text" id="z}m/o#uE37c#6sW:~0*{">
+<field name="TEXT">Not for Logitech F310</field>
+</shadow>
+</value>
+<next>
+<block type="telemetry_update" id="VM,rbGbKpcl]8(6|af`F">
+<next>
+<block type="linearOpMode_waitForStart" id=":`$wN_ci`O;o6P0~.(+g">
+<next>
+<block type="controls_if" id="}Q?5mbxSO8Di;i!__6[y">
+<value name="IF0">
+<block type="linearOpMode_opModeIsActive" id=")o%YFX/#9kvv^sgXr4~5"/>
+</value>
+<statement name="DO0">
+<block type="procedures_callnoreturn" id="]GSZ?}ca@ZyZ*@@/H2Y:">
+<mutation name="Build an Effect"/>
+<next>
+<block type="controls_whileUntil" id="iY~*zHi2T^%~02`]+o_I">
+<field name="MODE">WHILE</field>
+<value name="BOOL">
+<block type="linearOpMode_opModeIsActive" id="|!g9:HRQOh,*B:~5WK.b"/>
+</value>
+<statement name="DO">
+<block type="telemetry_addTextData_All" id="g0;-$E_p77Wq_h(2bJD2">
+<value name="KEY">
+<shadow type="text" id="s]C1t-rm)kuH5,RM]?1x">
+<field name="TEXT">Dpad Left</field>
+</shadow>
+</value>
+<value name="TEXT">
+<shadow type="text" id="AEnQdS:i3il~LLAG#u=2">
+<field name="TEXT">rumbleEffect</field>
+</shadow>
+</value>
+<next>
+<block type="procedures_callnoreturn" id="$CM6#0N}yfWZ/;tqVlO)">
+<mutation name="rumbleEffect"/>
+<next>
+<block type="telemetry_addTextData_All" id="[AFTMVWn^dvw@V?~cr!.">
+<value name="KEY">
+<shadow type="text" id="b7){.p(6wPN)N,0}aO;Q">
+<field name="TEXT">Dpad Up</field>
+</shadow>
+</value>
+<value name="TEXT">
+<shadow type="text" id="$1ML_e[W%cr{NYRm}PcE">
+<field name="TEXT">basic rumble for time</field>
+</shadow>
+</value>
+<next>
+<block type="procedures_callnoreturn" id="g4cn0Sm6XG7i(2Max(nd">
+<mutation name="rumble(time)"/>
+<next>
+<block type="telemetry_addTextData_All" id="0S{hv?HmWmL^$*JWf2`8">
+<value name="KEY">
+<shadow type="text" id="309=O%XZc=L@B/IP5~BA">
+<field name="TEXT">Dpad Right</field>
+</shadow>
+</value>
+<value name="TEXT">
+<shadow type="text" id="dKH(fiw]8/%qv1y.JvRX">
+<field name="TEXT">rumble1, rumble2, time</field>
+</shadow>
+</value>
+<next>
+<block type="procedures_callnoreturn" id="cG8*y*8:IqwQxV}-]pi2">
+<mutation name="rumble(p1,p2,time)"/>
+<next>
+<block type="telemetry_addTextData_All" id="=:@|o0+83Hi8-gB.s1z-">
+<value name="KEY">
+<shadow type="text" id="?F5Mg[LMQHuE5TXraK@=">
+<field name="TEXT">Dpad Down</field>
+</shadow>
+</value>
+<value name="TEXT">
+<shadow type="text" id=".r~Q=|9r`dN}Cb!wGIC@">
+<field name="TEXT">rumbleBlips</field>
+</shadow>
+</value>
+<next>
+<block type="procedures_callnoreturn" id=".88y})c{HfX0A=${}+^b">
+<mutation name="rumbleBlips()"/>
+<next>
+<block type="telemetry_update" id="+mjC48W)kT!}XT=l9;[("/>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+</next>
+</block>
+</statement>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+<block type="procedures_defnoreturn" id="m/NgwNP1{5dvJehb(IMP" x="-2824" y="-342">
+<field name="NAME">rumbleEffect</field>
+<comment pinned="false" h="80" w="160">Describe this function...</comment>
+<statement name="STACK">
+<block type="controls_if" id="4vfiH!6`ilkAv@_-i8qa">
+<value name="IF0">
+<block type="gamepad_getProperty_Boolean" id="G0k6{%W)L)r3%P9yiUxX">
+<field name="IDENTIFIER">gamepad1</field>
+<field name="PROP">DpadLeft</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</value>
+<statement name="DO0">
+<block type="elapsedTime2_reset" id="uAngQJOGd1Snxmh6gOF@">
+<value name="ELAPSED_TIME">
+<block type="variables_get" id="k1}3v!_5X.oF|~Ly,#`^">
+<field name="VAR" id="PlxDVr+rE#+f[{`^P1|K">RumbleTimer</field>
+</block>
+</value>
+<next>
+<block type="gamepad_runRumbleEffect" id="~e|@XFY~yOjWE0(2Z3VF">
+<field name="IDENTIFIER">gamepad1</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+<value name="RUMBLE_EFFECT">
+<block type="variables_get" id="/_bg2i`jS;$EA?%5_nr%">
+<field name="VAR" id="02*3lE-[Idp~_I{iCxO.">{rumbleEffectVariable}</field>
+</block>
+</value>
+<next>
+<block type="controls_whileUntil" id="8^8dSqqQIfO[w6.$v_Y_">
+<field name="MODE">WHILE</field>
+<value name="BOOL">
+<block type="logic_operation" id="UK`;^CtX1314?_/dG$Js" inline="false">
+<field name="OP">AND</field>
+<value name="A">
+<block type="gamepad_isRumbling" id="mKcXeDLMXyl,XW2Z?sVH">
+<field name="IDENTIFIER">gamepad1</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</value>
+<value name="B">
+<block type="linearOpMode_opModeIsActive" id="4K2yuSBe?#;5672sk#s$"/>
+</value>
+</block>
+</value>
+<statement name="DO">
+<block type="controls_if" id="9bRp/}?VMmPYVOpN!5Wu">
+<value name="IF0">
+<block type="gamepad_getProperty_Boolean" id="?4A3E@YgbSzIAW5Bf_qE">
+<field name="IDENTIFIER">gamepad1</field>
+<field name="PROP">Cross</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</value>
+<statement name="DO0">
+<block type="gamepad_stopRumble" id="crrn`U?:64;h8u`{ywQ:">
+<field name="IDENTIFIER">gamepad1</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</statement>
+<next>
+<block type="telemetry_addTextData_All" id="GB~TadTKD=[cuJf}R7ke">
+<value name="KEY">
+<shadow type="text" id="(4w,h]2]y^uw~)t6=Xpr">
+<field name="TEXT">Rumble Effect</field>
+</shadow>
+</value>
+<value name="TEXT">
+<shadow type="text" id="-ym^Ft9[g~,/Nk-~LoIz">
+<field name="TEXT">R1 - off - R2 - off</field>
+</shadow>
+</value>
+<next>
+<block type="telemetry_addTextData_All" id="4?z93plqEof0akG2nS*|">
+<value name="KEY">
+<shadow type="text" id="XE#J6YF4.bXcz{u%kf(,">
+<field name="TEXT">To abort rumble</field>
+</shadow>
+</value>
+<value name="TEXT">
+<shadow type="text" id="Q3HL:aH/gTaEDBBb~ag%">
+<field name="TEXT">press Cross (or A)</field>
+</shadow>
+</value>
+<next>
+<block type="variables_set" id="fUZJS._%+-Q+Z*J~j`y4">
+<field name="VAR" id="Fmy{=cDEHKiLjuqXC0T7">SavedRumbleTime</field>
+<value name="VALUE">
+<block type="elapsedTime2_getProperty_Number" id="0.,:pMe0Fxo%A*.sLV@P">
+<field name="PROP">Time</field>
+<value name="ELAPSED_TIME">
+<block type="variables_get" id="rj(tw!Q{DK[*S$Rxoq^x">
+<field name="VAR" id="PlxDVr+rE#+f[{`^P1|K">RumbleTimer</field>
+</block>
+</value>
+</block>
+</value>
+<next>
+<block type="telemetry_addNumericData_Number" id="(FO4KE4(E?P?I=9aT[~p">
+<value name="KEY">
+<shadow type="text" id="6zE$C.;}gdV}i`o5]7RV">
+<field name="TEXT">Rumble time</field>
+</shadow>
+</value>
+<value name="NUMBER">
+<block type="misc_roundDecimal" id="OMlx4iUDB%syZip.)qmk">
+<value name="NUMBER">
+<shadow type="math_number">
+<field name="NUM">3.14159265</field>
+</shadow>
+<block type="variables_get" id="0~X^:dne/3FLg2GeV[P:">
+<field name="VAR" id="Fmy{=cDEHKiLjuqXC0T7">SavedRumbleTime</field>
+</block>
+</value>
+<value name="PRECISION">
+<shadow type="math_number" id="x}/GA~.0J2X,ws|$K_-r">
+<field name="NUM">0</field>
+</shadow>
+</value>
+</block>
+</value>
+<next>
+<block type="telemetry_update" id="W2:GO+7uQQhtm/s28xJN"/>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+<next>
+<block type="procedures_callnoreturn" id="-K,Fag.*lvF)%9All6V9">
+<mutation name="Wait for Triangle (or Y)"/>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+</statement>
+</block>
+<block type="procedures_defnoreturn" id="syhQkQP%qPnvn8E{@4/Z" x="-2064" y="-352">
+<field name="NAME">rumble(time)</field>
+<comment pinned="false" h="80" w="160">Describe this function...</comment>
+<statement name="STACK">
+<block type="controls_if" id="(aWne0aP@$o%55xey%Lr">
+<value name="IF0">
+<block type="gamepad_getProperty_Boolean" id="/`y=edP/mzy(x=L0M`:F">
+<field name="IDENTIFIER">gamepad1</field>
+<field name="PROP">DpadUp</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</value>
+<statement name="DO0">
+<block type="elapsedTime2_reset" id="kdVf58r#Uo3VIXRI//4C">
+<value name="ELAPSED_TIME">
+<block type="variables_get" id="wbdob8)ghi81sVQLd177">
+<field name="VAR" id="PlxDVr+rE#+f[{`^P1|K">RumbleTimer</field>
+</block>
+</value>
+<next>
+<block type="gamepad_rumble_with1" id="13W?4{kGWX?-mbaV5W:6">
+<field name="IDENTIFIER">gamepad1</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+<value name="MILLISECONDS">
+<shadow type="math_number" id="Y8p(/46I]s[:b|f4i?v4">
+<field name="NUM">3000</field>
+</shadow>
+</value>
+<next>
+<block type="controls_whileUntil" id="/yD*6(bir|y-R=LPkQV;">
+<field name="MODE">WHILE</field>
+<value name="BOOL">
+<block type="logic_operation" id="yaZK/s-ZFUxN3{:;Bo~=" inline="false">
+<field name="OP">AND</field>
+<value name="A">
+<block type="gamepad_isRumbling" id="5Rl?l?nG2tp9p@8}@P(e">
+<field name="IDENTIFIER">gamepad1</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</value>
+<value name="B">
+<block type="linearOpMode_opModeIsActive" id=")tVP|M*TC4jzBP*gac-7"/>
+</value>
+</block>
+</value>
+<statement name="DO">
+<block type="controls_if" id="rtZ;^woL6(Xnnb[8):l5">
+<value name="IF0">
+<block type="gamepad_getProperty_Boolean" id="BXnCvLVbdd7e+h6CDo+9">
+<field name="IDENTIFIER">gamepad1</field>
+<field name="PROP">Cross</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</value>
+<statement name="DO0">
+<block type="gamepad_stopRumble" id="+]-H`~kPcF%d4wZGxD(+">
+<field name="IDENTIFIER">gamepad1</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</statement>
+<next>
+<block type="telemetry_addTextData_All" id="0ycRL_U0QdfF[B=Ov9uI">
+<value name="KEY">
+<shadow type="text" id="rLIxWa;sw#7DB(x0rmGo">
+<field name="TEXT">Rumble1, full power</field>
+</shadow>
+</value>
+<value name="TEXT">
+<shadow type="text" id="38d@E3X6oGrRY8_(nhq5">
+<field name="TEXT">3000 ms</field>
+</shadow>
+</value>
+<next>
+<block type="telemetry_addTextData_All" id="9(qw%2a(#X*WI1}ZKn@%">
+<value name="KEY">
+<shadow type="text" id="w931k,h7gKbd1zw5ty@d">
+<field name="TEXT">To abort rumble</field>
+</shadow>
+</value>
+<value name="TEXT">
+<shadow type="text" id="i^INDqT0^IPxYv`Yh164">
+<field name="TEXT">press Cross (or A)</field>
+</shadow>
+</value>
+<next>
+<block type="variables_set" id=",JBn@V_-ASN.m4,wQq6.">
+<field name="VAR" id="Fmy{=cDEHKiLjuqXC0T7">SavedRumbleTime</field>
+<value name="VALUE">
+<block type="elapsedTime2_getProperty_Number" id="~fF@j.VOT],=jx5*Hpg:">
+<field name="PROP">Time</field>
+<value name="ELAPSED_TIME">
+<block type="variables_get" id="YY0HS5AZqZVgE5D@Ew{(">
+<field name="VAR" id="PlxDVr+rE#+f[{`^P1|K">RumbleTimer</field>
+</block>
+</value>
+</block>
+</value>
+<next>
+<block type="telemetry_addNumericData_Number" id="1(R;szPa7`6wNV:OBBbZ">
+<value name="KEY">
+<shadow type="text" id="sxN4uLsnzj6:EB6-%gkq">
+<field name="TEXT">Rumble time</field>
+</shadow>
+</value>
+<value name="NUMBER">
+<block type="misc_roundDecimal" id="t2hg2:1p/emWU~!mZ#Xs">
+<value name="NUMBER">
+<shadow type="math_number" id="fQ59NJ`_p#%Hi.P.[pt]">
+<field name="NUM">3.14159265</field>
+</shadow>
+<block type="variables_get" id="GGL{:Z0ivD=`3C1r`)#8">
+<field name="VAR" id="Fmy{=cDEHKiLjuqXC0T7">SavedRumbleTime</field>
+</block>
+</value>
+<value name="PRECISION">
+<shadow type="math_number" id="qc:]ozixkB+w/Io@/n[H">
+<field name="NUM">0</field>
+</shadow>
+</value>
+</block>
+</value>
+<next>
+<block type="telemetry_update" id="HO)QC,*g^A]%][uCk7a:"/>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+<next>
+<block type="procedures_callnoreturn" id="UR[|Sm1|5i9G{Mlgq0RM">
+<mutation name="Wait for Triangle (or Y)"/>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+</statement>
+</block>
+<block type="procedures_defnoreturn" id="YD#EESO(z+.WX.V|Yq]/" x="-1362" y="-362">
+<field name="NAME">rumble(p1,p2,time)</field>
+<comment pinned="false" h="80" w="160">Describe this function...</comment>
+<statement name="STACK">
+<block type="controls_if" id="duG)#BHdr_.,)C+7ys.n">
+<value name="IF0">
+<block type="gamepad_getProperty_Boolean" id="Y^_xrAEj)1Ju}k``[-Sk">
+<field name="IDENTIFIER">gamepad1</field>
+<field name="PROP">DpadRight</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</value>
+<statement name="DO0">
+<block type="elapsedTime2_reset" id="@C*ZHNVBeK:Io2lpGC3;">
+<value name="ELAPSED_TIME">
+<block type="variables_get" id="SxLbOz_~9HP|t-kN$jGH">
+<field name="VAR" id="PlxDVr+rE#+f[{`^P1|K">RumbleTimer</field>
+</block>
+</value>
+<next>
+<block type="gamepad_rumble_with3" id="#QDOW:QQ23biOcVdUtD;">
+<field name="IDENTIFIER">gamepad1</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+<value name="RUMBLE_1">
+<shadow type="math_number" id="-m+cbXF$e9I:MW3yH,r7">
+<field name="NUM">0</field>
+</shadow>
+</value>
+<value name="RUMBLE_2">
+<shadow type="math_number" id="9L6xXyR!2g9+qHXuCk^^">
+<field name="NUM">1</field>
+</shadow>
+</value>
+<value name="MILLISECONDS">
+<shadow type="math_number" id="E1)OZ/a#4q,k~Dg.zgV3">
+<field name="NUM">3000</field>
+</shadow>
+</value>
+<next>
+<block type="controls_whileUntil" id="hpjyR|ibRru(7K[v}w3n">
+<field name="MODE">WHILE</field>
+<value name="BOOL">
+<block type="logic_operation" id="a71DR7[Zdx2CPo)r:SNf" inline="false">
+<field name="OP">AND</field>
+<value name="A">
+<block type="gamepad_isRumbling" id="1,C~ST}5p35D0Ua}qsnR">
+<field name="IDENTIFIER">gamepad1</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</value>
+<value name="B">
+<block type="linearOpMode_opModeIsActive" id=".e-hRF}Fru{V@U#dxQF]"/>
+</value>
+</block>
+</value>
+<statement name="DO">
+<block type="controls_if" id="]hXRE?7A}2}/Dw%RNQQ2">
+<value name="IF0">
+<block type="gamepad_getProperty_Boolean" id="`Q|v8A{bB#a*70r:=D~?">
+<field name="IDENTIFIER">gamepad1</field>
+<field name="PROP">Cross</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</value>
+<statement name="DO0">
+<block type="gamepad_stopRumble" id=";k9~TIIU2)SN5FEiU,wQ">
+<field name="IDENTIFIER">gamepad1</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</statement>
+<next>
+<block type="telemetry_addTextData_All" id="Y|c3dh(%oJ84VSd*AL[X">
+<value name="KEY">
+<shadow type="text" id=",#P7uvNT5GGsQ%J|MT/2">
+<field name="TEXT">Rumble1 @ 1.0, Rumble2 @ 1.0</field>
+</shadow>
+</value>
+<value name="TEXT">
+<shadow type="text" id="~;T=@=s4AT~wsc,fhNmZ">
+<field name="TEXT">3000 ms</field>
+</shadow>
+</value>
+<next>
+<block type="telemetry_addTextData_All" id="s=fUDZRvG8J+hD^7%`dc">
+<value name="KEY">
+<shadow type="text" id="GBoEc2jj2t|x{)ZQ]IC}">
+<field name="TEXT">To abort rumble</field>
+</shadow>
+</value>
+<value name="TEXT">
+<shadow type="text" id="jW$?IS5d]K{lVQoR|F!^">
+<field name="TEXT">press Cross (or A)</field>
+</shadow>
+</value>
+<next>
+<block type="variables_set" id="nx(Qwml9N+=teP?`ky2k">
+<field name="VAR" id="Fmy{=cDEHKiLjuqXC0T7">SavedRumbleTime</field>
+<value name="VALUE">
+<block type="elapsedTime2_getProperty_Number" id="AuNeR;7iVxWeQKWh@{Yv">
+<field name="PROP">Time</field>
+<value name="ELAPSED_TIME">
+<block type="variables_get" id="}?F`S`2u7sa!$4$]@,NZ">
+<field name="VAR" id="PlxDVr+rE#+f[{`^P1|K">RumbleTimer</field>
+</block>
+</value>
+</block>
+</value>
+<next>
+<block type="telemetry_addNumericData_Number" id="#{Q+^}e=%J4)?kzXA3~E">
+<value name="KEY">
+<shadow type="text" id="oGfKT=8:E[PX9vrWwQ{^">
+<field name="TEXT">Rumble time</field>
+</shadow>
+</value>
+<value name="NUMBER">
+<block type="misc_roundDecimal" id="fM[x#k_@t)[6rJR;QWU8">
+<value name="NUMBER">
+<shadow type="math_number" id="dsyW4^yI4{o{`k.y*TrY">
+<field name="NUM">3.14159265</field>
+</shadow>
+<block type="variables_get" id="X52be|/USn+|08VNIYY]">
+<field name="VAR" id="Fmy{=cDEHKiLjuqXC0T7">SavedRumbleTime</field>
+</block>
+</value>
+<value name="PRECISION">
+<shadow type="math_number" id="8:ZK]OqOe[@#-qc03Mci">
+<field name="NUM">0</field>
+</shadow>
+</value>
+</block>
+</value>
+<next>
+<block type="telemetry_update" id=",Bi|Jj(qC/!PIctFWI(u"/>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+<next>
+<block type="procedures_callnoreturn" id="2tHzPYLnHp0.Sfy.Iy-V">
+<mutation name="Wait for Triangle (or Y)"/>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+</statement>
+</block>
+<block type="procedures_defnoreturn" id="OQurHd4=OQi6xDon++d%" x="-662" y="-378">
+<field name="NAME">rumbleBlips()</field>
+<comment pinned="false" h="80" w="160">Describe this function...</comment>
+<statement name="STACK">
+<block type="controls_if" id="RFn7}0*1+FyYJe}e?QJs">
+<value name="IF0">
+<block type="gamepad_getProperty_Boolean" id="D~,{_0;6?-0xzjaG~Tk;">
+<field name="IDENTIFIER">gamepad1</field>
+<field name="PROP">DpadDown</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</value>
+<statement name="DO0">
+<block type="elapsedTime2_reset" id="dz(DC+?|ernuoHBwk(XW">
+<value name="ELAPSED_TIME">
+<block type="variables_get" id="+xo/v)06-uZFLV||2/WJ">
+<field name="VAR" id="PlxDVr+rE#+f[{`^P1|K">RumbleTimer</field>
+</block>
+</value>
+<next>
+<block type="gamepad_rumbleBlips" id="lu9KuhVayci)lDi#O+59">
+<field name="IDENTIFIER">gamepad1</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+<value name="COUNT">
+<shadow type="math_number" id="h:zo##{!Y!QqLrDc?H*K">
+<field name="NUM">5</field>
+</shadow>
+</value>
+<next>
+<block type="controls_whileUntil" id="c#.x4E@7GYd2FWOKx-^?">
+<field name="MODE">WHILE</field>
+<value name="BOOL">
+<block type="logic_operation" id="T_O{/l[)oF6uy$|yt^Qx" inline="false">
+<field name="OP">AND</field>
+<value name="A">
+<block type="gamepad_isRumbling" id="~$Fu0t}5e=kld,]3pIkx">
+<field name="IDENTIFIER">gamepad1</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</value>
+<value name="B">
+<block type="linearOpMode_opModeIsActive" id="kedMX@L25yt^_qve#v?W"/>
+</value>
+</block>
+</value>
+<statement name="DO">
+<block type="controls_if" id="g_/16A*v7aROEW8Cl8[n">
+<value name="IF0">
+<block type="gamepad_getProperty_Boolean" id="{?6#yiswh4U~D;q|7g7t">
+<field name="IDENTIFIER">gamepad1</field>
+<field name="PROP">Cross</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</value>
+<statement name="DO0">
+<block type="gamepad_stopRumble" id="kY.I;F!mh]YV)yxg@EXN">
+<field name="IDENTIFIER">gamepad1</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</statement>
+<next>
+<block type="telemetry_addTextData_All" id="FW;57J(wPiLL:DZ4Ql-)">
+<value name="KEY">
+<shadow type="text" id="Y7FUFB*4j,o980~Cknrp">
+<field name="TEXT">RumbleBlips</field>
+</shadow>
+</value>
+<value name="TEXT">
+<shadow type="text" id="og5w0m}O(w9XPoFd~,3r">
+<field name="TEXT">5</field>
+</shadow>
+</value>
+<next>
+<block type="telemetry_addTextData_All" id="_kQax,TJ4o?h`VFwH)~$">
+<value name="KEY">
+<shadow type="text" id="Wn}Av24rfoi`u`9ChMle">
+<field name="TEXT">To abort rumble</field>
+</shadow>
+</value>
+<value name="TEXT">
+<shadow type="text" id="HQGrYU0+y6}dc%CYh|3=">
+<field name="TEXT">press Cross (or A)</field>
+</shadow>
+</value>
+<next>
+<block type="variables_set" id="/xtlC)8r7a.rW^T|YJo7">
+<field name="VAR" id="Fmy{=cDEHKiLjuqXC0T7">SavedRumbleTime</field>
+<value name="VALUE">
+<block type="elapsedTime2_getProperty_Number" id="[?}Mtapv])s}!%T;RgjF">
+<field name="PROP">Time</field>
+<value name="ELAPSED_TIME">
+<block type="variables_get" id="wvlfTz.-:HPY;%MHn8nH">
+<field name="VAR" id="PlxDVr+rE#+f[{`^P1|K">RumbleTimer</field>
+</block>
+</value>
+</block>
+</value>
+<next>
+<block type="telemetry_addNumericData_Number" id="Tg1/):[2a5.?0}jqYTFi">
+<value name="KEY">
+<shadow type="text" id="wf}sI+YF%g3;kK`o=4NQ">
+<field name="TEXT">Rumble time</field>
+</shadow>
+</value>
+<value name="NUMBER">
+<block type="misc_roundDecimal" id=",?ljGFh#*-EvOG4w5a@w">
+<value name="NUMBER">
+<shadow type="math_number" id=";N_mcWOD3Xc)C`;YOcM.">
+<field name="NUM">3.14159265</field>
+</shadow>
+<block type="variables_get" id="d)SrC(,_tlB{z*REibs.">
+<field name="VAR" id="Fmy{=cDEHKiLjuqXC0T7">SavedRumbleTime</field>
+</block>
+</value>
+<value name="PRECISION">
+<shadow type="math_number" id="EM?~E2a.{}@NJ2YFpZyW">
+<field name="NUM">0</field>
+</shadow>
+</value>
+</block>
+</value>
+<next>
+<block type="telemetry_update" id="xM.%-M[jAYr:3^|u+Xlb"/>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+<next>
+<block type="procedures_callnoreturn" id="!gGE$1j%@a9q_ynbSU*c">
+<mutation name="Wait for Triangle (or Y)"/>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+</statement>
+</block>
+<block type="procedures_defnoreturn" id="2`u{Eg`yLy)75p~Emzz)" x="-2827" y="450">
+<field name="NAME">Build an Effect</field>
+<comment pinned="false" h="80" w="160">Describe this function...</comment>
+<statement name="STACK">
+<block type="variables_set" id="#:x_$OI6KAu[^ON^:*hu">
+<field name="VAR" id="nv~5N`D|K{uPdE4c-ZhL">{rumbleEffectBuilderVariable}</field>
+<value name="VALUE">
+<block type="rumbleEffect_createBuilder" id="uJq18!DLcmgapelB(;yc"/>
+</value>
+<next>
+<block type="rumbleEffect_addStep" id="E=Q^o3c^y,}xJf!FJG|3">
+<value name="RUMBLE_EFFECT_BUILDER">
+<block type="variables_get" id="s$j~.UX|xZb!{N]#b_eP">
+<field name="VAR" id="nv~5N`D|K{uPdE4c-ZhL">{rumbleEffectBuilderVariable}</field>
+</block>
+</value>
+<value name="RUMBLE_1">
+<shadow type="math_number" id="@L#Oe(:SG8TSr3C#!}ck">
+<field name="NUM">1</field>
+</shadow>
+</value>
+<value name="RUMBLE_2">
+<shadow type="math_number" id="G(ACAT-TJTB8?Voa@X-*">
+<field name="NUM">0</field>
+</shadow>
+</value>
+<value name="MILLISECONDS">
+<shadow type="math_number" id="qTzB7,/N~2qNlpoEtfBA">
+<field name="NUM">1000</field>
+</shadow>
+</value>
+<next>
+<block type="rumbleEffect_addStep" id="@r,rDz.M[|+E$6q+%M]5">
+<value name="RUMBLE_EFFECT_BUILDER">
+<block type="variables_get" id="Pmd/lt9_xVOV/-R^!J5P">
+<field name="VAR" id="nv~5N`D|K{uPdE4c-ZhL">{rumbleEffectBuilderVariable}</field>
+</block>
+</value>
+<value name="RUMBLE_1">
+<shadow type="math_number" id="zOFe,mp(sxpxTWRgEHc^">
+<field name="NUM">0</field>
+</shadow>
+</value>
+<value name="RUMBLE_2">
+<shadow type="math_number" id="bE;^_R*Q3;5YS~1l;O.j">
+<field name="NUM">0</field>
+</shadow>
+</value>
+<value name="MILLISECONDS">
+<shadow type="math_number" id="g)C(n4%4L2l13(1Ijz~^">
+<field name="NUM">1000</field>
+</shadow>
+</value>
+<next>
+<block type="rumbleEffect_addStep" id="FNplsdK.6br*sRe.PU%h">
+<value name="RUMBLE_EFFECT_BUILDER">
+<block type="variables_get" id="DQ={xD)A@Qs2H#o|so=B">
+<field name="VAR" id="nv~5N`D|K{uPdE4c-ZhL">{rumbleEffectBuilderVariable}</field>
+</block>
+</value>
+<value name="RUMBLE_1">
+<shadow type="math_number" id="Li!!TE;+qz?|hRBbdxdn">
+<field name="NUM">0</field>
+</shadow>
+</value>
+<value name="RUMBLE_2">
+<shadow type="math_number" id="Gwx_f3XYJ)65PAM`uFyQ">
+<field name="NUM">1</field>
+</shadow>
+</value>
+<value name="MILLISECONDS">
+<shadow type="math_number" id="HE`.-won]jTY^q0@A}[C">
+<field name="NUM">1000</field>
+</shadow>
+</value>
+<next>
+<block type="rumbleEffect_addStep" id="kp,PVw4}u]}Y!5!2/+_0">
+<value name="RUMBLE_EFFECT_BUILDER">
+<block type="variables_get" id="Z8h|jY~j/H6B`A}2Q`j8">
+<field name="VAR" id="nv~5N`D|K{uPdE4c-ZhL">{rumbleEffectBuilderVariable}</field>
+</block>
+</value>
+<value name="RUMBLE_1">
+<shadow type="math_number" id="9$/NGXAyiAZ*]KtjR/=X">
+<field name="NUM">0</field>
+</shadow>
+</value>
+<value name="RUMBLE_2">
+<shadow type="math_number" id="%gI,Z0ujo3cJs=CAS)xQ">
+<field name="NUM">0</field>
+</shadow>
+</value>
+<value name="MILLISECONDS">
+<shadow type="math_number" id="sbkX{qRYm=fv.55!x{Mg">
+<field name="NUM">1000</field>
+</shadow>
+</value>
+<next>
+<block type="variables_set" id="p{wd:y+Ah$$oKs2b*i-H">
+<field name="VAR" id="02*3lE-[Idp~_I{iCxO.">{rumbleEffectVariable}</field>
+<value name="VALUE">
+<block type="rumbleEffect_build" id="vHq;U^}nd@;GL!pc/AX5">
+<value name="RUMBLE_EFFECT_BUILDER">
+<block type="variables_get" id="~4~b@15`0CHOXjlFh7Jv">
+<field name="VAR" id="nv~5N`D|K{uPdE4c-ZhL">{rumbleEffectBuilderVariable}</field>
+</block>
+</value>
+</block>
+</value>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+<block type="procedures_defnoreturn" id="FAAUoa6a`1=]T[F,[sn4" x="-2070" y="462">
+<field name="NAME">Wait for Triangle (or Y)</field>
+<comment pinned="false" h="80" w="160">Describe this function...</comment>
+<statement name="STACK">
+<block type="controls_whileUntil" id="H^w!LL2aP=h#_xS!XGA%">
+<field name="MODE">WHILE</field>
+<value name="BOOL">
+<block type="logic_operation" id="m,L1e/~~t(#A`C7$wiJ[" inline="false">
+<field name="OP">AND</field>
+<value name="A">
+<block type="logic_negate" id="67f~Z5`-jJDyn7)fIYR@">
+<value name="BOOL">
+<block type="gamepad_getProperty_Boolean" id="9kJ*nH8GG_G?D1hz.)S$">
+<field name="IDENTIFIER">gamepad1</field>
+<field name="PROP">Triangle</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</value>
+</block>
+</value>
+<value name="B">
+<block type="linearOpMode_opModeIsActive" id="~OE%/;e/e;O]=UOb5~Y|"/>
+</value>
+</block>
+</value>
+<statement name="DO">
+<block type="telemetry_addNumericData_Number" id="@8$QQ|:k1_m$No}+yV`Q">
+<value name="KEY">
+<shadow type="text" id="#z$[NJWq,2}(|^xgos.d">
+<field name="TEXT">Final rumble duration (ms)</field>
+</shadow>
+</value>
+<value name="NUMBER">
+<block type="misc_roundDecimal" id="0ef^yQGw6=Sb7@mkb)no">
+<value name="NUMBER">
+<shadow type="math_number">
+<field name="NUM">3.14159265</field>
+</shadow>
+<block type="variables_get" id="*8e]Ao;bdG.-]1@YUztS">
+<field name="VAR" id="Fmy{=cDEHKiLjuqXC0T7">SavedRumbleTime</field>
+</block>
+</value>
+<value name="PRECISION">
+<shadow type="math_number" id="^IV,cptNcuMX4d-Ms~#8">
+<field name="NUM">0</field>
+</shadow>
+</value>
+</block>
+</value>
+<next>
+<block type="telemetry_addTextData_All" id="$,t^.#3pb/8Uh`[mI)5Q">
+<value name="KEY">
+<shadow type="text" id="Uds5|+-;?bzqG|]z7xp]">
+<field name="TEXT">To resume testing</field>
+</shadow>
+</value>
+<value name="TEXT">
+<shadow type="text" id="cmYNk{3!=El-6,qX+yth">
+<field name="TEXT">press Triangle (or Y)</field>
+</shadow>
+</value>
+<next>
+<block type="telemetry_update" id="_Xk!gk6NoP(aOcRFgj=i"/>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+</statement>
+</block>
+</xml>
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<Extra>
+<OpModeMeta flavor="TELEOP" group="" autoTransition="" />
+<Enabled value="true" />
+</Extra>
